@@ -73,7 +73,7 @@ docker-compose up --build
 |---|---|---|
 | Baseline: LogReg + TF-IDF | 0.7481 | ngram (1,2), 50k features, C=1.0 |
 | CatBoost + TF-IDF | — | CP2 |
-| rubert-tiny2 fine-tune | — | CP2, 4 эпохи, lr=2e-5 |
+| rubert-tiny2 fine-tune | — | CP2 |
 
 ## Чекпоинты
 
