@@ -75,13 +75,21 @@ pip install -r requirements.txt
 
 ## Результаты
 
-| Модель | Val Macro F1 | Примечание |
-|--------|--------------|------------|
-| Baseline: LogReg + TF-IDF | 0.7481 | ngram (1,2), 50k features |
-| CatBoost + TF-IDF | — | CP2 |
-| LightGBM + TF-IDF | — | CP2 |
-| rubert-tiny2 fine-tune | — | CP2 |
+### Результаты экспериментов
 
+| Модель                              | Val Macro F1 | Примечание |
+|-------------------------------------|--------------|----------|
+|  Baseline: LogReg + TF-IDF        | 0.7487    | ngram(1,2), max_features=50k, sublinear_tf=True |
+|  LogReg (GridSearch)              | 0.7488    | Лучшая модель. C=0.5, class_weight='balanced' |
+|  LogReg + Word + Char n-grams     | 0.7438    | Комбинированные признаки (TF-IDF word + char_wb 3-6) |
+|  Voting (LogReg + LightGBM + CatBoost)  | 0.7483 | Soft voting лучших моделей |
+|  LinearSVC (calibrated)           | 0.7361       | С калибровкой вероятностей |
+|  CatBoost + TF-IDF (GPU)          | 0.7294       | iterations=500-800, depth=6-8 |
+|  LightGBM + TF-IDF (GPU)          | 0.7227       | n_estimators=500-800, num_leaves=63-127 |
+|  Random Forest                    | 0.7165       | n_estimators=200, class_weight='balanced' |
+|  KNN (cosine)                     | 0.6621       | n_neighbors=7 |
+
+Финальной моделью выбрана Logistic Regression после GridSearch (C=0.5, class_weight='balanced'), так как она показала наивысший результат по Macro F1 (0.7488)
 
 ## Отчёт
 
