@@ -1,3 +1,3 @@
 # Презентация
 
-Добавьте сюда файл `slides.pdf` (или `slides.pptx` / `slides.key`) для 5-минутной защиты проекта.
+https://disk.yandex.ru/i/CVlmJMgi6ZIicQ
